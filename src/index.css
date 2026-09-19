@@ -1,53 +1,133 @@
-@import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&display=swap");
 
 :root {
-  /* Paleta lila */
-  --fondo: #faf7fb;
-  --blanco: #ffffff;
-  --lila-niebla: #ece4f2;
-  --lila: #c3a5d6;
-  --lila-hondo: #6b4b80;
-  --dorado: #b49a67;
-  --texto: #3f3644;
-  --texto-suave: #7a7080;
-  --borde: #e4dbea;
+  /* =========================================================
+     PALETA PRINCIPAL
+     Boutique infantil · ceremonias · elegante y delicada
+     ========================================================= */
 
-  font-family: "Jost", system-ui, sans-serif;
-  color: var(--texto);
+  /* Marfil y neutros cálidos */
+  --marfil: #fff2e1;
+  --marfil-claro: #fff8f1;
+  --crema: #ead8c0;
+  --beige: #d1bb9e;
+  --taupe: #a79277;
+
+  /* Rosa empolvado — utilizado solamente como acento */
+  --rosa-suave: #f7d6d0;
+  --rosa-polvo: #e2b4bd;
+
+  /* Neutros */
+  --tinta: #4a4a4a;
+  --tinta-suave: #6b625b;
+  --gris: #f4f1ed;
+  --blanco: #ffffff;
+
+  /* Fondos */
+  --fondo: #fffaf6;
+  --fondo-crema: #fff2e1;
+
+  /* Bordes */
+  --borde: #eadfd2;
+  --borde-suave: #f1e8df;
+
+  /* Estados */
+  --acento: #a79277;
+  --acento-hover: #8f795f;
+
+  /* Sombras cálidas y muy suaves */
+  --sombra:
+    0 1px 2px rgba(74, 74, 74, 0.04),
+    0 10px 28px rgba(167, 146, 119, 0.10);
+
+  --sombra-fuerte:
+    0 2px 4px rgba(74, 74, 74, 0.05),
+    0 18px 40px rgba(167, 146, 119, 0.15);
+
+  /* Tipografía */
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: var(--tinta);
   background: var(--fondo);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-* { box-sizing: border-box; }
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   background: var(--fondo);
+  color: var(--tinta);
 }
 
-h1, h2, h3, .marca, .footer-marca {
-  font-family: "Marcellus", Georgia, serif;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
-  color: var(--lila-hondo);
+
+/* =========================================================
+   TIPOGRAFÍA
+   ========================================================= */
+
+h1,
+h2,
+h3,
+.marca,
+.footer-marca {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--tinta);
   margin: 0 0 0.6rem;
 }
 
-h1 { font-size: clamp(1.9rem, 4vw, 2.9rem); }
-h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
-h3 { font-size: 1.05rem; color: var(--texto); }
+h1 {
+  font-size: clamp(2.3rem, 5vw, 3.7rem);
+  letter-spacing: -0.01em;
+}
 
-p { margin: 0 0 0.8rem; }
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  letter-spacing: -0.005em;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 0.8rem;
+}
+
+
+/* =========================================================
+   ENLACES
+   ========================================================= */
 
 a {
-  color: var(--lila-hondo);
+  color: var(--tinta);
   text-decoration: none;
-  border-bottom: 1px solid var(--lila);
+  border-bottom: 1px solid var(--beige);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
-a:hover { color: var(--dorado); border-color: var(--dorado); }
+
+a:hover {
+  color: var(--acento-hover);
+  border-color: var(--acento-hover);
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
 
 button {
   font: inherit;
@@ -57,13 +137,42 @@ button {
   color: inherit;
 }
 
-img { max-width: 100%; display: block; }
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+
+/* =========================================================
+   IMÁGENES
+   ========================================================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
 
 :focus-visible {
-  outline: 2px solid var(--lila-hondo);
+  outline: 2px solid var(--taupe);
   outline-offset: 3px;
 }
 
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }
