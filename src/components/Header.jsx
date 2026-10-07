@@ -49,6 +49,7 @@ export default function Header({
   const nav = [
     ["inicio", "Inicio"],
     ["tienda", "Tienda"],
+    ["agregar", "Agregar"],
     ["nosotros", "Nosotros"],
     ["contacto", "Contacto"],
   ];

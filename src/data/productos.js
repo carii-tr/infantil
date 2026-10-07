@@ -118,4 +118,4 @@ export const productos = [
 ];
 
 export const precio = (n) =>
-  n.toLocaleString("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
+  n.toLocaleString("es-MX", { style: "currency", currency: "MXN", minimumFractionDigits: 2, maximumFractionDigits: 2 });

@@ -1,8 +1,8 @@
-import { categorias, productos } from "../data/productos";
+import { categorias } from "../data/productos";
 import TarjetaProducto from "../components/TarjetaProducto";
-import hero from "../../public/img/vestidocomunion2.png";
+const hero = "/img/vestidocomunion2.png";
 
-export default function Inicio({ ir }) {
+export default function Inicio({ ir, productos }) {
   const destacados = productos.filter((p) => p.destacado);
 
   return (

@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
-import { categorias, productos, precio } from "../data/productos";
+import { categorias, precio } from "../data/productos";
 import TarjetaProducto from "../components/TarjetaProducto";
 
-export default function Tienda({ ir, catInicial }) {
+export default function Tienda({ ir, catInicial, productos }) {
   const [cat, setCat] = useState(catInicial || "todos");
-  const [max, setMax] = useState(3000);
+  const [max, setMax] = useState(() => Math.max(3000, ...productos.map(p => Math.ceil(p.precio / 50) * 50)));
   const [orden, setOrden] = useState("relevancia");
 
   useEffect(() => {
     setCat(catInicial || "todos");
   }, [catInicial]);
+
+  const limite = Math.max(3000, ...productos.map(p => Math.ceil(p.precio / 50) * 50));
+  useEffect(() => { setMax(limite); }, [limite]);
 
   let lista = productos.filter(
     (p) =>
@@ -128,8 +131,8 @@ export default function Tienda({ ir, catInicial }) {
           <input
             id="rango"
             type="range"
-            min="200"
-            max="3000"
+            min="0"
+            max={limite}
             step="50"
             value={max}
             onChange={(e) =>

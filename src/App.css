@@ -782,7 +782,8 @@ main {
 
 .franja {
   position: relative;
-  background: var(--marfil);
+  /* background: var(--marfil); */
+  background-color: rgb(236, 228, 242);
   text-align: center;
   padding: 4.5rem 1.5rem;
   margin-top: 2rem;
@@ -1410,3 +1411,18 @@ main {
     grid-column: 2;
   }
 }
+/* Registro de novedades, en la misma paleta lila del catálogo. */
+.registro-producto { max-width: 920px; margin: 24px auto; padding: 28px; border: 1px solid var(--borde); background: var(--blanco); border-radius: 20px; }
+.registro-campos { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; min-width: 0; }
+.registro-campos legend { font-size: 1.2rem; color: var(--lila-hondo); margin-bottom: 20px; }
+.registro-campos label { display: flex; flex-direction: column; gap: 8px; font-weight: 500; }
+.registro-campos input:not([type=checkbox]), .registro-campos select, .registro-campos textarea { width: 100%; min-width: 0; padding: 12px; border: 1px solid var(--borde); border-radius: 10px; background: var(--fondo); font: inherit; color: var(--texto); }
+.registro-campos textarea { resize: vertical; }
+.registro-campos small { color: var(--texto-suave); font-weight: 300; }
+.registro-completo { grid-column: 1 / -1; }
+.registro-campos .registro-check { flex-direction: row; align-items: center; }
+.registro-vista { width: 180px; height: 200px; object-fit: contain; background: var(--lila-niebla); border-radius: 12px; }
+.aviso-registro { padding: 16px; border: 1px solid var(--borde); background: var(--lila-niebla); border-radius: 12px; margin-bottom: 20px; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+.boton { background: var(--lila-hondo); border-color: var(--lila-hondo); }
+@media (max-width: 640px) { .registro-campos { grid-template-columns: 1fr; } .registro-producto { padding: 18px; } }

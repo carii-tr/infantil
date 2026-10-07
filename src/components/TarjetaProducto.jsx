@@ -48,6 +48,7 @@ export default function TarjetaProducto({ producto, ir }) {
           {producto.color}
         </p>
 
+        <p className="tarjeta-color">{producto.stock === undefined ? "Consultar disponibilidad" : producto.stock === 0 ? "Agotado" : `${producto.stock} piezas disponibles`}</p>
         {/* Precio y acción */}
         <div className="tarjeta-pie">
 

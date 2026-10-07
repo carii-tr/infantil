@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { productos, precio, categorias } from "../data/productos";
+import { precio, categorias } from "../data/productos";
 import TarjetaProducto from "../components/TarjetaProducto";
 
-export default function Producto({ id, ir, agregar }) {
+export default function Producto({ id, ir, agregar, productos }) {
   const p = productos.find((x) => x.id === id);
 
   const [talla, setTalla] = useState(
@@ -10,6 +10,7 @@ export default function Producto({ id, ir, agregar }) {
   );
 
   const [listo, setListo] = useState(false);
+  const [error, setError] = useState("");
 
   if (!p) {
     return (
@@ -32,7 +33,8 @@ export default function Producto({ id, ir, agregar }) {
     .slice(0, 4);
 
   const alCarrito = () => {
-    agregar(p, talla);
+    if (agregar(p, talla) === false) { setError("Ya tienes en el carrito todas las piezas disponibles de este producto."); return; }
+    setError("");
     setListo(true);
 
     setTimeout(() => {
@@ -114,10 +116,15 @@ export default function Producto({ id, ir, agregar }) {
             {p.descripcion}
           </p>
 
+          <p className="campo">{p.stock === undefined ? "Existencias por confirmar en tienda" : p.stock === 0 ? "Agotado" : `${p.stock} piezas en tienda física`}</p>
+          {p.publico && <p className="campo">Para: {p.publico}</p>}
+          {p.ocasion && <p className="campo">Ceremonia: {p.ocasion}</p>}
+          {error && <p role="alert">{error}</p>}
           {/* Acción */}
           <button
             className="boton"
             onClick={alCarrito}
+            disabled={p.stock === 0 || !talla}
           >
             Agregar al carrito
           </button>
